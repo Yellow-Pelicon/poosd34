@@ -5,6 +5,23 @@ public class CharacterShooting : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform shootingPoint;
     public float bulletSpeed = 20.0f;
+
+    public Weapon currentWeapon;
+
+    void Update()
+    {
+        
+        if (Input.GetButtonDown("Fire1"))
+        {
+            currentWeapon.TryShoot();
+        }
+    }
+    
+    public void ChangeWeapon(Weapon newWeapon)
+    {
+        currentWeapon = newWeapon;
+        // Update the UI or any other elements here
+    }
     
     public void fireBullet()
     {
