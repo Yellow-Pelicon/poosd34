@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class CharacterBehavior : MonoBehaviour
 {
     public float speed = 5.0f;
     private float horizontalMovement = 0f;

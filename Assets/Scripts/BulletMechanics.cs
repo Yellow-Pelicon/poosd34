@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class BulletMechanics : MonoBehaviour
 {
     public float speed = 10.0f;
 
