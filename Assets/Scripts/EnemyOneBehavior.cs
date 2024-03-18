@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FallingEnemy : MonoBehaviour
+public class EnemyOneBehavior : MonoBehaviour
 {
     public float fallSpeed = 5.0f;
     public float cloneInterval = 3.0f;
@@ -49,7 +49,7 @@ public class FallingEnemy : MonoBehaviour
     private void CloneEnemy()
     {
         GameObject clone = Instantiate(gameObject, new Vector3(0, 0, 0), Quaternion.identity);
-        FallingEnemy cloneScript = clone.GetComponent<FallingEnemy>();
+        EnemyOneBehavior cloneScript = clone.GetComponent<EnemyOneBehavior>();
         if (cloneScript != null)
         {
             cloneScript.isOriginal = false;
@@ -64,10 +64,10 @@ public class FallingEnemy : MonoBehaviour
         {
             if (collision.CompareTag("Player"))
             {
-                PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
-                if (playerController != null)
+                CharacterBehavior characterBehavior = collision.gameObject.GetComponent<CharacterBehavior>();
+                if (characterBehavior != null)
                 {
-                    playerController.TakeDamage(damageAmount);
+                    characterBehavior.TakeDamage(damageAmount);
                 }
                 Destroy(gameObject); // Destroy this enemy
             }
